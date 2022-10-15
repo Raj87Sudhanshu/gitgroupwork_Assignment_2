@@ -61,3 +61,11 @@ while (True):
         printSummary()  
     
     if int(Wickets) - int(PreviousWickets) == 1 and not ignore_first:
+        ShowNotification('Wicket!!!',commentary + '\n' + score)      
+        printSummary()
+        ignore_first = False
+        
+    
+    PreviousRuns = Runs;
+    PreviousWickets = Wickets;        
+    previous_overs = overs
