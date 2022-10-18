@@ -23,3 +23,11 @@ def get_current_matches():
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()] # returns only the live matches and ignores the completed ones
     return live_matches
   
+def fetch_score(matchNum):
+    # Function to return the live score of the match specified
+    page = requests.get('http://static.cricinfo.com/rss/livescores.xml')
+    soup = BeautifulSoup(page.text,'lxml')
+    matches = soup.find_all('description')
+    live_matches = [s.get_text() for s in matches if '*' in s.get_text()]
+    return live_matches[matchNum]
+  
