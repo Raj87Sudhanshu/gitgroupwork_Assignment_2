@@ -1,3 +1,4 @@
+#This part is done by Sudhanshu Raj
 import requests
 from bs4 import BeautifulSoup
 from win10toast import ToastNotifier
@@ -22,7 +23,8 @@ def get_current_matches():
     matches = soup.find_all('description') # description tags contain the score
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()] # returns only the live matches and ignores the completed ones
     return live_matches
-  
+
+#This part is done by Priyanshu Rai
 def fetch_score(matchNum):
     # Function to return the live score of the match specified
     page = requests.get('http://static.cricinfo.com/rss/livescores.xml')
@@ -30,7 +32,8 @@ def fetch_score(matchNum):
     matches = soup.find_all('description')
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()]
     return live_matches[matchNum]
-  
+
+#This part is done by Bhavay Negi
 def notify(score):
     # Function for Windows toast desktop notification
     toaster = ToastNotifier()
