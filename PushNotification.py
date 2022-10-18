@@ -33,7 +33,7 @@ def fetch_score(matchNum):
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()]
     return live_matches[matchNum]
 
-#This part is done by Bhavay Negi
+#This part is done by Bhavya Negi
 def notify(score):
     # Function for Windows toast desktop notification
     toaster = ToastNotifier()
