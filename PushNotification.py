@@ -33,6 +33,24 @@ def fetch_score(matchNum):
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()]
     return live_matches[matchNum]
 
+
+#This part is done by Swati Pal
+
+### The Main Function ###
+if _name_ == "_main_":
+    ascii_art() 
+    matches = get_current_matches()
+    print('Current matches in play')
+    print('='*23)
+    # printing a list of all the current live matches 
+    for i,match in enumerate(matches):
+                print('[{}] '.format(i) + 
+                        re.search('\D+',match.split('v')[0]).group() + 'vs.' +
+                        re.search('\D+',match.split('v')[1]).group()
+                      )
+
+    print()
+    matchNum = int(input('Pick the match number [0,1,2...] => '))
 #This part is done by Bhavya Negi
 def notify(score):
     # Function for Windows toast desktop notification
@@ -40,3 +58,5 @@ def notify(score):
     toaster.show_toast(score,
                        "Go India, Jai Ho!",
                        duration=10)
+
+
