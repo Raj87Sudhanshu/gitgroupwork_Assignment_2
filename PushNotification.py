@@ -33,6 +33,13 @@ def fetch_score(matchNum):
     live_matches = [s.get_text() for s in matches if '*' in s.get_text()]
     return live_matches[matchNum]
 
+#This part is done by Bhavya Negi
+def notify(score):
+    # Function for Windows toast desktop notification
+    toaster = ToastNotifier()
+    toaster.show_toast(score,
+                       "Go India, Jai Ho!",
+                       duration=10)
 
 #This part is done by Swati Pal
 
@@ -51,12 +58,9 @@ if _name_ == "_main_":
 
     print()
     matchNum = int(input('Pick the match number [0,1,2...] => '))
-#This part is done by Bhavya Negi
-def notify(score):
-    # Function for Windows toast desktop notification
-    toaster = ToastNotifier()
-    toaster.show_toast(score,
-                       "Go India, Jai Ho!",
-                       duration=10)
-
+    # show desktop notification every 30 seconds
+    while True:
+        current_score = fetch_score(matchNum)
+        notify(current_score)
+        sleep(30)
 
